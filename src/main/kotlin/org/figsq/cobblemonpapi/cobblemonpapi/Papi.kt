@@ -24,7 +24,7 @@ object Papi : PlaceholderExpansion() {
     }
 
     override fun onRequest(player: OfflinePlayer?, params: String): String {
-        return readPoke(player, params)?.let { pair ->
+        return (readPoke(player, params)?.let { pair ->
             pair.first?.let { poke ->
                 val args = pair.second.removePrefix("_").split("_")
                 PapiArgs::class.declaredMemberProperties.find {
@@ -33,7 +33,13 @@ object Papi : PlaceholderExpansion() {
                     it.get(PapiArgs(player, poke, args.drop(1).toTypedArray())) as String
                 }
             } ?: "NO-DATA"
-        } ?: "NO-POKEMON-DATA"
+        } ?: "NO-POKEMON-DATA").let {value->
+            var result = value
+            COBBLEMONPAPI.papiResultReplace.forEach {
+                result = result.replace(it.key, it.value)
+            }
+            result
+        }
     }
 
     override fun persist(): Boolean {

@@ -1,0 +1,12 @@
+#变量结果替换
+papi-result-replace:
+  NO-OWNER: 无主人
+  NO-NICKNAME: 无昵称
+  NO-DATA: 无数据
+  NO-POKEMON-DATA: 无宝可梦数据
+  NO-STATUS: 无状态
+  NO-MOVE: 无技能
+  UNKNOWN-PARAMETER-2: '未知的二号位参数'
+  NO-SLOT: 无槽位
+  NO-BOX: 无箱槽位
+  ##只要是结果就能替换
