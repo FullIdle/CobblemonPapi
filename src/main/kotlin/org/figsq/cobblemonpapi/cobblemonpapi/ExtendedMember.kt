@@ -1,11 +1,15 @@
 package org.figsq.cobblemonpapi.cobblemonpapi
 
 import com.cobblemon.mod.common.Cobblemon
+import com.cobblemon.mod.common.api.spawning.CobblemonSpawnPools
+import com.cobblemon.mod.common.api.spawning.detail.PokemonSpawnDetail
 import com.cobblemon.mod.common.api.storage.PokemonStore
 import com.cobblemon.mod.common.api.storage.PokemonStoreManager
 import com.cobblemon.mod.common.api.storage.StorePosition
 import com.cobblemon.mod.common.api.storage.party.PlayerPartyStore
 import com.cobblemon.mod.common.api.storage.pc.PCStore
+import com.cobblemon.mod.common.pokemon.Pokemon
+import com.cobblemon.mod.common.pokemon.Species
 import com.google.gson.Gson
 import org.bukkit.Bukkit
 import org.bukkit.OfflinePlayer
@@ -55,4 +59,8 @@ val GSON: Gson = Gson()
 
 fun UUID.getOfflinePlayer(): OfflinePlayer? {
     return Bukkit.getOfflinePlayers().find { it.uniqueId == this };
+}
+
+fun Pokemon.getSpawnDetail(): PokemonSpawnDetail? {
+    return CobblemonSpawnPools.WORLD_SPAWN_POOL.find { it is PokemonSpawnDetail && it.pokemon.matches(this) } as? PokemonSpawnDetail
 }

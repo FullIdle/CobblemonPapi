@@ -1,9 +1,11 @@
 package org.figsq.cobblemonpapi.cobblemonpapi
 
+import com.cobblemon.mod.common.api.conditional.RegistryLikeTagCondition
 import com.cobblemon.mod.common.api.pokemon.stats.Stats
 import com.cobblemon.mod.common.api.storage.party.PartyPosition
 import com.cobblemon.mod.common.api.storage.pc.PCPosition
 import com.cobblemon.mod.common.pokemon.Pokemon
+import com.cobblemon.mod.common.registry.BiomeTagCondition
 import com.cobblemon.mod.common.util.asTranslated
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
@@ -188,6 +190,20 @@ class PapiArgs(player: OfflinePlayer?, pokemon: Pokemon, args: Array<String>) {
         pokemon.species.forms.joinToString {
             it.name
         }
+    }
+
+    val biome: String by lazy {
+        pokemon.getSpawnDetail()?.let {
+            val list = mutableListOf<String>()
+            for (condition in it.conditions) {
+                condition.biomes?.forEach { condition ->
+                    (condition as? BiomeTagCondition)?.tag?.location?.toString()?.let { str ->
+                        list.add(str)
+                    }
+                }
+            }
+            if (list.isNotEmpty()) list.joinToString() else null
+        } ?: "NO-FIND"
     }
 }
 
