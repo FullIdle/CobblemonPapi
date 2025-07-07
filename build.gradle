@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'org.figsq.cobblemonpapi.cobblemonpapi.Main'
-version = '1.0.1-SNAPSHOT'
+version = '1.0.2-SNAPSHOT'
 
 architectury {
     minecraft = '1.21.1'
@@ -40,7 +40,7 @@ dependencies {
     compileOnly "net.md-5:bungeecord-chat:1.20-R0.1"
 
     compileOnly 'me.clip:placeholderapi:2.11.6'
-    compileOnly 'me.fullidle.ficore:FICore:1.2.6'
+    compileOnly 'me.fullidle.ficore.ficore:FICore:1.2.9'
 
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     compileOnly 'org.jetbrains.kotlin:kotlin-reflect'
