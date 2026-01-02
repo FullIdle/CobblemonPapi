@@ -1,6 +1,5 @@
 package org.figsq.cobblemonpapi.cobblemonpapi
 
-import com.cobblemon.mod.common.api.conditional.RegistryLikeTagCondition
 import com.cobblemon.mod.common.api.pokemon.stats.Stats
 import com.cobblemon.mod.common.api.storage.party.PartyPosition
 import com.cobblemon.mod.common.api.storage.pc.PCPosition

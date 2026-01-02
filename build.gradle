@@ -1,11 +1,11 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '2.0.20'
+    id 'org.jetbrains.kotlin.jvm' version '2.2.0'
     id 'architectury-plugin' version '3.4-SNAPSHOT'
-    id 'dev.architectury.loom' version '1.7-SNAPSHOT'
+    id 'dev.architectury.loom' version '1.11-SNAPSHOT'
 }
 
 group = 'org.figsq.cobblemonpapi.cobblemonpapi.Main'
-version = '1.0.2-SNAPSHOT'
+version = '1.0.3-SNAPSHOT'
 
 architectury {
     minecraft = '1.21.1'
@@ -15,9 +15,10 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven {
-        allowInsecureProtocol = true
-        url "http://qiyuan.figsq.top:31647/snapshots"
+        name "cobblemonReleases"
+        url "https://artefacts.cobblemon.com/releases"
     }
+
     maven {
         url = 'https://repo.extendedclip.com/releases/'
     }
@@ -34,13 +35,12 @@ dependencies {
     minecraft "net.minecraft:minecraft:1.21.1"
     mappings loom.officialMojangMappings()
 
-    modCompileOnly("com.cobblemon:mod:1.6.1+1.21.1")
+    modCompileOnly "com.cobblemon:fabric:1.7.1+1.21.1"
 
     compileOnly 'org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT'
     compileOnly "net.md-5:bungeecord-chat:1.20-R0.1"
 
     compileOnly 'me.clip:placeholderapi:2.11.6'
-    compileOnly 'me.fullidle.ficore.ficore:FICore:1.2.9'
 
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
     compileOnly 'org.jetbrains.kotlin:kotlin-reflect'
