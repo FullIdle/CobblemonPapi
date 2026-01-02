@@ -65,7 +65,7 @@ fun UUID.getOfflinePlayer(): OfflinePlayer? {
     return Bukkit.getOfflinePlayers().find { it.uniqueId == this };
 }
 
-val spawnDetailCache = mutableMapOf<Species, ()-> PokemonSpawnDetail?>()
+val spawnDetailCache = mutableMapOf<Species, () -> PokemonSpawnDetail?>()
 
 val Species.spawnDetail: PokemonSpawnDetail?
     get() {
